@@ -4,6 +4,7 @@ import {Controller } from 'react-hook-form';
 
 
 export default function RTE({name, control, label, defaultValue =""}) {
+  const tiny_apiKey = import.meta.env.VITE_tiny_API_key
   return (
     <div className='w-full'> 
     {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
@@ -14,7 +15,7 @@ export default function RTE({name, control, label, defaultValue =""}) {
     render={({field: {onChange}}) => (
         <Editor
         initialValue={defaultValue}
-        apiKey='de1zf3wwe0ea0vmy3aua3xuoqelm2d4j18opk7650rhbfojw'
+        apiKey= {tiny_apiKey}
         init={{
             initialValue: defaultValue,
             height: 500,

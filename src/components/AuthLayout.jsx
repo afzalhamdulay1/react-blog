@@ -10,12 +10,34 @@ export default function Protected({children, authentication = true}) {
 
     useEffect(() => {
 
-        if(authentication && authStatus !== authentication){
-            navigate("/login")
-        } else if(!authentication && authStatus !== authentication){
-            navigate("/")
-        }
+        if(authentication) {
+            if (authStatus === false) {
+                navigate("/login")
+            }
+        } else if (!authentication) {
+            if (authStatus === true) {
+                navigate("/")
+            }
+        } 
         setLoader(false)
+
+        // if (authentication && !authStatus) {
+        //     navigate("/login")
+        // } else if (!authentication && authStatus) {
+        //     navigate("/")
+        // }
+        // setLoader(false)
+
+        // if(authentication && authStatus !== authentication){
+        //     navigate("/login")
+        // } else if(!authentication && authStatus !== authentication){
+        //     navigate("/")
+        // }
+        // setLoader(false)
+
+        
+
+        
     }, [authStatus, navigate, authentication])
 
   return loader ? <h1>Loading...</h1> : <>{children}</>
