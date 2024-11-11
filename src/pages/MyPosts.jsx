@@ -41,7 +41,7 @@ function MyPosts() {
 
     
     
-  return (
+  return userPosts.length>0 ? (
     <div className='w-full py-8'>
         <Container>
             <div className='flex flex-wrap'>
@@ -53,7 +53,7 @@ function MyPosts() {
             </div>
             </Container>
     </div>
-  )
+  ) : <div className='flex justify-center items-center'>You havent made any posts yet</div>;
 }
 
 export default MyPosts
